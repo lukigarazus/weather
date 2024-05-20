@@ -1,0 +1,24 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "install:client": "cd packages/client && yarn install",
+    "install:api": "cd packages/api && yarn install",
+    "install:all": "concurrently \"yarn install:client\" \"yarn install:api\"",
+    "start:client": "cd packages/client && yarn start --host",
+    "start:api": "cd packages/api && yarn start",
+    "start:all": "concurrently \"yarn start:client\" \"yarn start:api\""
+  },
+  "private": true,
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "devDependencies": {
+    "@yarnpkg/plugin-workspace-tools": "^4.1.0"
+  }
+}
