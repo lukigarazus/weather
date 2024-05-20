@@ -71,10 +71,13 @@ function App() {
   useEffect(() => {
     switch (state.kind) {
       case "loading weather for current location":
-        getWeather({
-          lat: state.location.coords.latitude,
-          lon: state.location.coords.longitude,
-        }).then((weather) =>
+        getWeather(
+          {
+            lat: state.location.coords.latitude,
+            lon: state.location.coords.longitude,
+          },
+          units,
+        ).then((weather) =>
           setState({
             kind: "weather for current location",
             location: state.location,
